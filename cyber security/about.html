@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - About Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&=swap" rel="stylesheet">display
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+overflow-x:hidden;
+}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:500;
+animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:0.6;}}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:500;
+}
+nav a:hover{color:#00f2fe;}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px 50px;
+position:relative;
+animation:fade 1.2s ease;
+}
+@keyframes fade{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1;}
+}
+
+.hero h2{
+font-size:44px;
+color:#203a43;
+}
+
+.hero p{
+color:#555;
+max-width:720px;
+margin:auto;
+}
+
+/* FLOATING ICONS */
+.sticker{
+position:absolute;
+font-size:35px;
+animation:float 4s infinite;
+}
+.sticker1{top:60px; left:80px;}
+.sticker2{top:150px; right:100px;}
+.sticker3{bottom:40px; left:120px;}
+@keyframes float{50%{transform:translateY(-15px);}}
+
+/* IMPACT STATS */
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:40px 20px;
+flex-wrap:wrap;
+}
+.stat{
+background:white;
+width:220px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+.stat h3{
+font-size:32px;
+color:#2c5364;
+margin:0;
+}
+
+/* CARDS */
+.section{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:40px 20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+width:300px;
+padding:25px;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+text-align:center;
+}
+.card:hover{transform:translateY(-10px);}
+.card h3{color:#2c5364;}
+
+/* TIMELINE */
+.timeline{
+max-width:700px;
+margin:40px auto;
+}
+.step{
+background:white;
+padding:15px;
+margin:15px 0;
+border-left:6px solid #2c5364;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* TECH STACK */
+.tech{
+text-align:center;
+padding:40px;
+}
+.tech span{
+display:inline-block;
+background:#203a43;
+color:white;
+padding:8px 15px;
+margin:8px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* QUOTE */
+.quote{
+background:#2c5364;
+color:white;
+text-align:center;
+padding:30px 20px;
+font-size:18px;
+font-style:italic;
+}
+
+/* TEAM */
+.team{
+text-align:center;
+padding:40px 20px;
+background:#203a43;
+color:white;
+}
+
+.team-members{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.member{
+background:white;
+color:#203a43;
+padding:20px;
+border-radius:15px;
+width:220px;
+box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+.member:hover{transform:scale(1.05);}
+
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="alert">
+🚀 Built for Hackathon 2026 – Powering a Cyber Safe India
+</div>
+
+<header>
+<h1>🛡️ FraudShield India</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="heatmap.html">Heatmap</a>
+<a href="report.html">Report</a>
+<a href="awareness.html">Awareness</a>
+<a href="quiz.html">Quiz</a>
+<a href="community.html">Community</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="sticker sticker1">🚀</div>
+<div class="sticker sticker2">🛡️</div>
+<div class="sticker sticker3">🇮🇳</div>
+
+<h2>About FraudShield India</h2>
+<p>
+FraudShield India is a smart cyber fraud monitoring, reporting and awareness platform designed to protect citizens and strengthen India’s digital resilience.
+</p>
+</section>
+
+<section class="stats">
+<div class="stat"><h3>35K+</h3><p>Frauds Reported</p></div>
+<div class="stat"><h3>28+</h3><p>States Covered</p></div>
+<div class="stat"><h3>700+</h3><p>Districts Tracked</p></div>
+</section>
+
+<section class="section">
+<div class="card">
+<h3>🎯 Our Mission</h3>
+<p>Empower citizens with awareness and enable rapid fraud reporting.</p>
+</div>
+
+<div class="card">
+<h3>👁️ Our Vision</h3>
+<p>Create a digitally secure India powered by smart technology.</p>
+</div>
+
+<div class="card">
+<h3>💡 Why It Matters</h3>
+<p>Early reporting can prevent losses and stop fraud chains.</p>
+</div>
+</section>
+
+<section class="timeline">
+<div class="step">📝 Citizen reports fraud instantly</div>
+<div class="step">📊 Data analyzed at district & state level</div>
+<div class="step">🚨 Authorities receive trend alerts</div>
+<div class="step">🛡️ Awareness improves prevention</div>
+</section>
+
+<section class="tech">
+<h3>⚙️ Technology Stack</h3>
+<span>HTML & CSS</span>
+<span>JavaScript</span>
+<span>AI Insights</span>
+<span>Smart City Data</span>
+<span>Secure Forms</span>
+</section>
+
+<div class="quote">
+“Cyber safety is not optional — it is essential.”
+</div>
+
+<section class="team">
+<h2>👨‍💻 Our Team</h2>
+
+<div class="team-members">
+<div class="member">
+<h4>ANSHU NANDANWAR</h4>
+<p>Frontend & UI</p>
+</div>
+
+<div class="member">
+<h4>HIRAL LANGDE</h4>
+<p>Backend & Logic</p>
+</div>
+
+<div class="member">
+<h4>SHREEYA & MADHURA</h4>
+<p>Research & UX</p>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 FraudShield India | Hackathon Innovation 🚀
+</footer>
+
+</body>
+</html>

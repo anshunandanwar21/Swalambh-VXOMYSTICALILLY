@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+overflow-x:hidden;
+}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:500;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{50%{opacity:0.6;}}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:500;
+}
+
+nav a:hover{color:#00f2fe;}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:70px 20px 30px;
+position:relative;
+}
+
+.hero h2{font-size:42px;color:#203a43;}
+.hero p{color:#555;}
+
+/* FLOATING ICONS */
+.sticker{
+position:absolute;
+font-size:35px;
+animation:float 4s ease-in-out infinite;
+}
+.sticker1{top:60px; left:80px;}
+.sticker2{top:150px; right:100px;}
+.sticker3{bottom:40px; left:120px;}
+
+@keyframes float{
+50%{transform:translateY(-15px);}
+}
+
+/* POST BOX */
+.post-box{
+width:520px;
+margin:20px auto;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.85);
+backdrop-filter:blur(10px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+textarea, select, input{
+width:100%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+margin-top:10px;
+}
+
+button{
+margin-top:15px;
+padding:10px 22px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{transform:scale(1.05);}
+
+/* SEARCH */
+.search-box{
+width:500px;
+margin:0 auto 20px;
+}
+
+/* POSTS */
+.posts{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+padding-bottom:40px;
+}
+
+.post{
+width:520px;
+background:white;
+padding:18px;
+border-radius:15px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.post:hover{transform:translateY(-6px);}
+
+.badge{
+display:inline-block;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+color:white;
+margin-bottom:8px;
+}
+
+.KYC{background:#ff4d4d;}
+.OTP{background:#ff9800;}
+.LOAN{background:#3f51b5;}
+.CALL{background:#009688;}
+
+.post-footer{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:14px;
+}
+
+.like, .report{
+cursor:pointer;
+font-weight:600;
+}
+
+.like{color:#ff4d4d;}
+.report{color:#555;}
+
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+}
+</style>
+
+<script>
+function addPost(){
+let content = newPost.value.trim();
+let type = fraudType.value;
+if(!content) return;
+
+let post = document.createElement("div");
+post.className = "post";
+post.innerHTML = `
+<span class="badge ${type}">${type} FRAUD</span>
+<p>${content}</p>
+<div class="post-footer">
+<span class="like" onclick="like(this)">❤️ 0</span>
+<span>${new Date().toLocaleString()}</span>
+<span class="report" onclick="alert('Reported to moderators')">🚩 Report</span>
+</div>`;
+
+posts.prepend(post);
+newPost.value="";
+}
+
+function like(el){
+let count = parseInt(el.innerText.split(" ")[1]) + 1;
+el.innerText = "❤️ " + count;
+}
+
+function searchPosts(){
+let q = search.value.toLowerCase();
+document.querySelectorAll(".post").forEach(p=>{
+p.style.display = p.innerText.toLowerCase().includes(q) ? "block" : "none";
+});
+}
+</script>
+</head>
+
+<body>
+
+<div class="alert">🚨 Community Alert: Share fraud experiences to protect others!</div>
+
+<header>
+<h1>🛡️ FraudShield India</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="heatmap.html">Heatmap</a>
+<a href="report.html">Report</a>
+<a href="awareness.html">Awareness</a>
+<a href="quiz.html">Quiz</a>
+<a href="community.html">Community</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="sticker sticker1">💬</div>
+<div class="sticker sticker2">🚨</div>
+<div class="sticker sticker3">📢</div>
+<h2>Community Fraud Alerts</h2>
+<p>Post. Warn. Protect India 🇮🇳</p>
+</section>
+
+<div class="search-box">
+<input id="search" onkeyup="searchPosts()" placeholder="🔍 Search fraud alerts...">
+</div>
+
+<div class="post-box">
+<h3>Post a Fraud Alert</h3>
+<select id="fraudType">
+<option value="KYC">KYC Scam</option>
+<option value="OTP">OTP Fraud</option>
+<option value="LOAN">Loan Scam</option>
+<option value="CALL">Scam Call</option>
+</select>
+<textarea id="newPost" rows="3" placeholder="Describe the fraud incident..."></textarea>
+<button onclick="addPost()">Post Alert</button>
+</div>
+
+<div class="posts" id="posts">
+<div class="post">
+<span class="badge KYC">KYC FRAUD</span>
+<p>⚠️ Fake KYC update call in Mumbai. Do not share Aadhaar.</p>
+<div class="post-footer">
+<span class="like" onclick="like(this)">❤️ 12</span>
+<span>Today</span>
+<span class="report">🚩 Report</span>
+</div>
+</div>
+</div>
+
+<footer>
+© 2026 FraudShield India | Community Powered Safety 🚀
+</footer>
+
+</body>
+</html>

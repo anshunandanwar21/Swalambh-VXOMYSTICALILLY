@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+font-size:22px;
+}
+.logo span{color:#00f2fe;}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 10px;
+font-weight:500;
+}
+nav a:hover{color:#00f2fe;}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+padding:8px;
+overflow:hidden;
+white-space:nowrap;
+}
+.alert span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 15s linear infinite;
+}
+@keyframes scroll{
+100%{transform:translateX(-100%);}
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:90px 20px 60px;
+position:relative;
+animation:fadeIn 1s;
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;}
+}
+.hero h2{font-size:46px;color:#203a43;}
+.hero p{font-size:18px;color:#555;}
+
+.btn{
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+padding:14px 32px;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+transition:0.3s;
+}
+.btn:hover{transform:scale(1.08);}
+
+/* FLOAT ICONS */
+.sticker{
+position:absolute;
+font-size:40px;
+animation:float 4s infinite;
+}
+.sticker1{top:40px;left:60px;}
+.sticker2{top:140px;right:90px;}
+.sticker3{bottom:40px;left:120px;}
+@keyframes float{50%{transform:translateY(-15px);}}
+
+/* THREAT */
+.threat{
+margin:30px auto;
+background:white;
+width:320px;
+padding:15px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(255,77,77,0.4);
+font-size:14px;
+}
+.level{color:#ff4d4d;font-weight:600;}
+
+/* CITY SELECT */
+.city-box{
+margin:20px auto;
+width:300px;
+}
+.city-box select{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+/* ACTIONS */
+.actions{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:40px;
+}
+.action-card{
+background:white;
+width:220px;
+padding:25px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+.action-card:hover{transform:translateY(-10px);}
+.action-card span{font-size:30px;}
+
+/* RISK BAR */
+.risk{
+width:350px;
+margin:40px auto;
+background:white;
+padding:15px;
+border-radius:15px;
+}
+.risk-bar{
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+}
+.risk-fill{
+width:68%;
+background:#ff4d4d;
+color:white;
+padding:6px;
+text-align:right;
+}
+
+/* TIMELINE */
+.timeline{
+width:360px;
+margin:40px auto;
+background:white;
+padding:15px;
+border-radius:15px;
+font-size:14px;
+}
+.timeline p{margin:8px 0;}
+
+/* TIP */
+.tip{
+background:#f1f9ff;
+margin:40px auto;
+padding:15px;
+width:360px;
+border-radius:15px;
+}
+
+/* HELPLINE */
+.helpline{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff4d4d;
+color:white;
+padding:14px 20px;
+border-radius:40px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* CHATBOT */
+.chatbot{
+position:fixed;
+bottom:90px;
+right:20px;
+width:300px;
+background:white;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+display:none;
+flex-direction:column;
+}
+.chat-header{
+background:#203a43;
+color:white;
+padding:10px;
+}
+.chat-body{
+padding:10px;
+height:180px;
+overflow-y:auto;
+font-size:13px;
+}
+.chat-msg{margin-bottom:10px;}
+.bot{color:#203a43;font-weight:600;}
+.chat-input{
+display:flex;
+border-top:1px solid #ccc;
+}
+.chat-input input{
+flex:1;
+border:none;
+padding:10px;
+}
+.chat-input button{
+background:#2c5364;
+color:white;
+border:none;
+padding:10px;
+}
+
+/* FOOTER */
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+</style>
+
+<script>
+let tips=[
+"Never click unknown links.",
+"Government agencies never ask OTP.",
+"Check URLs before login.",
+"Enable two-factor authentication."
+];
+let i=0;
+setInterval(()=>{
+document.getElementById("tipText").innerText=tips[i];
+i=(i+1)%tips.length;
+},3000);
+
+function toggleChat(){
+let c=document.getElementById("chatbot");
+c.style.display=c.style.display==="flex"?"none":"flex";
+}
+
+function sendMsg(){
+let input=document.getElementById("userMsg");
+let body=document.getElementById("chatBody");
+if(!input.value)return;
+body.innerHTML+=`<div class="chat-msg">👤 ${input.value}</div>`;
+body.innerHTML+=`<div class="chat-msg bot">🤖 If it asks OTP, it is fraud.</div>`;
+input.value="";
+body.scrollTop=body.scrollHeight;
+}
+
+document.addEventListener("keydown",(e)=>{
+if(e.key==="?")toggleChat();
+});
+</script>
+</head>
+
+<body>
+
+<div class="alert">
+<span>🚨 UPI Scams Rising Nationwide | Verify Before You Pay 🚨</span>
+</div>
+
+<header>
+<div class="logo">🛡️ FraudShield <span>India</span></div>
+<nav>
+<a href="#">Home</a>
+<a href="#">Dashboard</a>
+<a href="#">Heatmap</a>
+<a href="#">Report</a>
+<a href="#">Awareness</a>
+<a href="#">Quiz</a>
+<a href="#">Community</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="sticker sticker1">🔐</div>
+<div class="sticker sticker2">🚨</div>
+<div class="sticker sticker3">💳</div>
+
+<h2>Protecting India From Cyber Fraud</h2>
+<p>Smart Monitoring • Citizen Safety • AI Assistance</p>
+
+<div class="city-box">
+<select>
+<option>Select Your City</option>
+<option>Delhi</option>
+<option>Mumbai</option>
+<option>Bengaluru</option>
+<option>Hyderabad</option>
+</select>
+</div>
+
+<div class="threat">
+Current City Threat Level: <span class="level">HIGH</span>
+</div>
+
+<a href="#" class="btn">Report Fraud Now</a>
+</section>
+
+<section class="actions">
+<div class="action-card"><span>📢</span><p>Alerts</p></div>
+<div class="action-card"><span>📍</span><p>Heatmap</p></div>
+<div class="action-card"><span>📝</span><p>Report</p></div>
+<div class="action-card"><span>🎯</span><p>Quiz</p></div>
+</section>
+
+<div class="risk">
+<strong>Fraud Risk Meter</strong>
+<div class="risk-bar"><div class="risk-fill">68%</div></div>
+</div>
+
+<div class="timeline">
+<strong>Recent Fraud Reports</strong>
+<p>🔴 UPI Scam – Delhi – 5 min ago</p>
+<p>🔴 Fake Call – Mumbai – 12 min ago</p>
+<p>🔴 Phishing – Bengaluru – 25 min ago</p>
+</div>
+
+<div class="tip">
+🤖 AI Tip: <span id="tipText">Never click unknown links.</span>
+</div>
+
+<div class="helpline" onclick="toggleChat()">🤖 AI Help</div>
+
+<div class="chatbot" id="chatbot">
+<div class="chat-header">Cyber Assistant</div>
+<div class="chat-body" id="chatBody">
+<div class="chat-msg bot">🤖 Ask me about cyber fraud.</div>
+</div>
+<div class="chat-input">
+<input id="userMsg" placeholder="Type here...">
+<button onclick="sendMsg()">Send</button>
+</div>
+</div>
+
+<footer>
+© 2026 FraudShield India | Smart City Cyber Defense Platform
+</footer>
+
+</body>
+</html>

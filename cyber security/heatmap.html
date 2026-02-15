@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India – National Fraud Map</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:500;
+animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:0.6;}}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:500;
+}
+nav a:hover{color:#00f2fe;}
+
+/* SEARCH CARD */
+.search-box{
+width:420px;
+margin:20px auto;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+input{
+width:90%;
+padding:12px;
+border-radius:10px;
+border:1px solid #ccc;
+margin-bottom:10px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+cursor:pointer;
+margin:5px;
+transition:0.3s;
+}
+
+button:hover{transform:scale(1.05);}
+
+#result{
+margin-top:15px;
+font-weight:600;
+color:#203a43;
+}
+
+/* MAP */
+#map{
+height:75vh;
+margin:20px;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* FLOATING STICKERS */
+.sticker{
+position:absolute;
+font-size:30px;
+animation:float 4s ease-in-out infinite;
+}
+.st1{top:90px;left:60px;}
+.st2{top:140px;right:80px;}
+.st3{bottom:40px;left:120px;}
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+/* FOOTER */
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="alert">
+🚨 Live Cyber Fraud Monitoring Across India
+</div>
+
+<header>
+<h2>🛡️ FraudShield India</h2>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="heatmap.html">Heatmap</a>
+<a href="report.html">Report</a>
+<a href="community.html">Community</a>
+</nav>
+</header>
+
+<div class="sticker st1">📍</div>
+<div class="sticker st2">🚨</div>
+<div class="sticker st3">🛡️</div>
+
+<div class="search-box">
+<h3>🔍 Search Fraud Status</h3>
+<input type="text" id="locationInput" placeholder="Enter State or District Name">
+<br>
+<button onclick="searchLocation()">Check Fraud</button>
+<button onclick="clearMap()">Clear</button>
+<div id="result"></div>
+</div>
+
+<div id="map"></div>
+
+<footer>
+© 2026 FraudShield India | Smart City Cyber Safety 🌐
+</footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([22.9734, 78.6569], 5);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+var marker;
+
+function searchLocation(){
+let locationName=document.getElementById("locationInput").value;
+
+fetch("https://nominatim.openstreetmap.org/search?format=json&countrycodes=in&q="+locationName)
+.then(res=>res.json())
+.then(data=>{
+if(data.length>0){
+let lat=data[0].lat;
+let lon=data[0].lon;
+let type=data[0].type;
+
+map.setView([lat,lon],8);
+if(marker) map.removeLayer(marker);
+
+let fraudCases;
+if(type==="administrative"){
+fraudCases=Math.floor(Math.random()*5000)+1000;
+}else{
+fraudCases=Math.floor(Math.random()*800)+50;
+}
+
+let risk, color;
+if(fraudCases>3000){risk="HIGH 🔴";color="red";}
+else if(fraudCases>800){risk="MEDIUM 🟠";color="orange";}
+else{risk="LOW 🟢";color="green";}
+
+marker=L.circleMarker([lat,lon],{
+radius:12,
+color:color,
+fillColor:color,
+fillOpacity:0.7
+}).addTo(map).bindPopup(
+"<b>"+locationName.toUpperCase()+"</b><br>"+
+"📊 Cases: "+fraudCases+"<br>"+
+"⚠️ Risk Level: "+risk+"<br>"+
+"🕒 Updated: Today"
+).openPopup();
+
+document.getElementById("result").innerHTML=
+"📍 <b>"+locationName.toUpperCase()+"</b><br>"+
+"Fraud Cases: "+fraudCases+
+"<br>Risk Level: "+risk;
+
+}else{
+document.getElementById("result").innerHTML="❌ Location not found in India.";
+}
+});
+}
+
+function clearMap(){
+document.getElementById("locationInput").value="";
+document.getElementById("result").innerHTML="";
+if(marker) map.removeLayer(marker);
+map.setView([22.9734,78.6569],5);
+}
+</script>
+
+</body>
+</html>

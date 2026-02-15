@@ -1,0 +1,207 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║               🛡️  FraudShield India - MERN Stack Prototype                  ║
+║                          SETUP CHECKLIST                                    ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+PROJECT LOCATION:
+  📁 c:\Users\ANSHU\Desktop\SWALAMBH\fraudshield-mern
+
+════════════════════════════════════════════════════════════════════════════════
+
+PRE-REQUISITES CHECKLIST:
+
+[ ] Step 1: Install Node.js
+    ├─ Go to: https://nodejs.org/
+    ├─ Download: LTS version (Green button)
+    ├─ Run: The installer
+    ├─ Accept: All defaults
+    └─ Restart: Computer (or close all terminals)
+
+[ ] Step 2: Verify Installation
+    └─ Open Command Prompt and run:
+       node --version
+       npm --version
+       (Should show version numbers, not errors)
+
+[ ] Step 3: Install MongoDB (Choose ONE)
+    
+    Option A: Local Installation
+    ├─ Go to: https://www.mongodb.com/try/download/community
+    ├─ Download: Community Edition
+    ├─ Run: Installer
+    └─ Verify: Service is running
+    
+    Option B: Cloud (MongoDB Atlas) - RECOMMENDED
+    ├─ Go to: https://www.mongodb.com/cloud/atlas
+    ├─ Create: Free account
+    ├─ Create: Free cluster
+    └─ Get: Connection string
+
+════════════════════════════════════════════════════════════════════════════════
+
+LAUNCH APPLICATION - CHOOSE ONE METHOD:
+
+METHOD 1: Auto-Launch (Easiest) ✨
+    
+    [ ] Step 1: Open Command Prompt
+    [ ] Step 2: Navigate to project
+            cd c:\Users\ANSHU\Desktop\SWALAMBH\fraudshield-mern
+    [ ] Step 3: Run startup script
+            RUN.bat
+    [ ] Step 4: Wait for servers to start
+    [ ] Step 5: Browser opens automatically to http://localhost:3000
+
+
+METHOD 2: Manual Commands
+
+    [ ] Step 1: Open Command Prompt
+    [ ] Step 2: Navigate to project
+            cd c:\Users\ANSHU\Desktop\SWALAMBH\fraudshield-mern
+    [ ] Step 3: Install dependencies (first time only)
+            cd server && npm install && cd ..
+            cd client && npm install && cd ..
+    [ ] Step 4: Start development servers
+            npm run dev
+    [ ] Step 5: Open browser to http://localhost:3000
+
+
+ALTERNATIVE: Start servers separately (for debugging)
+
+    Terminal 1 - Backend:
+    [ ] cd c:\Users\ANSHU\Desktop\SWALAMBH\fraudshield-mern\server
+    [ ] npm run dev
+    
+    Terminal 2 - Frontend:
+    [ ] cd c:\Users\ANSHU\Desktop\SWALAMBH\fraudshield-mern\client
+    [ ] npm start
+
+════════════════════════════════════════════════════════════════════════════════
+
+ACCESS THE APPLICATION:
+
+    Frontend:      http://localhost:3000
+    Backend API:   http://localhost:5000
+    Health Check:  http://localhost:5000/api/health
+
+════════════════════════════════════════════════════════════════════════════════
+
+FIRST-TIME USAGE:
+
+[ ] Test 1: View Home Page
+    └─ Visit http://localhost:3000
+    └─ Should see FraudShield landing page
+
+[ ] Test 2: Create Account
+    ├─ Click "Login" button
+    ├─ Click "Sign Up"
+    ├─ Fill in Name, Email, Password, Phone
+    └─ Click "Sign Up"
+
+[ ] Test 3: File a Report
+    ├─ After login, click "Report" in nav
+    ├─ Fill in report details
+    ├─ Select category and severity
+    └─ Click "File Report"
+
+[ ] Test 4: View Dashboard
+    ├─ Click "Dashboard" in nav
+    ├─ See your filed reports
+    └─ View report status
+
+[ ] Test 5: Take Quiz
+    ├─ Click "Quiz" in nav
+    ├─ Click "Start Quiz"
+    ├─ Answer all questions
+    └─ See your score
+
+════════════════════════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING:
+
+❌ "npm/node not recognized"
+   ✓ Install Node.js from https://nodejs.org/
+   ✓ Restart your computer
+   ✓ Try again in a NEW Command Prompt
+
+❌ "Cannot find module" errors
+   ✓ Delete node_modules folder
+   ✓ Run: npm install again
+
+❌ "Port 3000/5000 already in use"
+   ✓ Close other apps using these ports
+   ✓ Or use different ports in .env
+
+❌ "MongoDB connection error"
+   ✓ Ensure MongoDB is running (local or Atlas)
+   ✓ Check MONGODB_URI in server\.env
+
+════════════════════════════════════════════════════════════════════════════════
+
+IMPORTANT FILES TO KNOW:
+
+📄 RUN.bat                  ← Run this to start everything
+📄 QUICKSTART.md            ← Detailed setup guide
+📄 STATUS.md                ← Current status & progress
+📄 README.md                ← Full documentation
+
+server\.env                 ← Database configuration
+                              (Created automatically)
+
+════════════════════════════════════════════════════════════════════════════════
+
+FEATURES AVAILABLE:
+
+✓ User Registration & Login       (with JWT authentication)
+✓ Fraud Report Filing             (with categories & severity)
+✓ Dashboard                       (track your reports)
+✓ Cybersecurity Quiz              (interactive learning)
+✓ Awareness Content               (educational materials)
+✓ Community Forum                 (share experiences)
+✓ Fraud Heatmap                   (visualize hotspots)
+✓ About Page                      (project info)
+✓ Responsive Design               (works on all devices)
+
+════════════════════════════════════════════════════════════════════════════════
+
+TECH STACK SUMMARY:
+
+Frontend:
+  ► React 18                      (UI framework)
+  ► React Router v6               (Navigation)
+  ► Axios                         (API calls)
+  ► CSS3                          (Styling)
+
+Backend:
+  ► Node.js + Express             (Server)
+  ► MongoDB                       (Database)
+  ► Mongoose                      (ORM)
+  ► JWT + Bcryptjs                (Security)
+
+════════════════════════════════════════════════════════════════════════════════
+
+NEXT STEPS:
+
+1. ⬜ Install Node.js from https://nodejs.org/
+2. ⬜ Restart your computer
+3. ⬜ Install MongoDB (local or use Atlas)
+4. ⬜ Run: RUN.bat from fraudshield-mern folder
+5. ⬜ Access: http://localhost:3000
+6. ⬜ Test: Create account and file a report
+
+════════════════════════════════════════════════════════════════════════════════
+
+NEED HELP?
+
+📖 Detailed Guide:  Read QUICKSTART.md in the project folder
+📊 Current Status:  Read STATUS.md for progress tracking
+📚 Full Docs:       Read README.md for complete information
+
+════════════════════════════════════════════════════════════════════════════════
+
+🎉 You're ready to launch your MERN prototype!
+
+Happy coding! 🚀
+
+════════════════════════════════════════════════════════════════════════════════

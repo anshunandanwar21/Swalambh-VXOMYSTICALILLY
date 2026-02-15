@@ -1,0 +1,20 @@
+{
+  "name": "fraudshield-mern-workspace",
+  "version": "1.0.0",
+  "description": "FraudShield India - Full Stack MERN Application",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client start\"",
+    "build": "npm --prefix client run build",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client start"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

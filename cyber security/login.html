@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+/* Floating background icons */
+.bg-icon{
+position:absolute;
+font-size:60px;
+opacity:0.08;
+animation: float 6s ease-in-out infinite;
+}
+
+.icon1{top:60px; left:80px;}
+.icon2{bottom:80px; right:100px; animation-delay:2s;}
+.icon3{top:200px; right:200px; animation-delay:4s;}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+}
+
+/* Login Card */
+.login-box{
+background:white;
+padding:40px;
+width:380px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+text-align:center;
+position:relative;
+z-index:2;
+transition:0.3s;
+}
+
+.login-box:hover{
+box-shadow:0 15px 35px rgba(44,83,100,0.3);
+}
+
+/* Security Status */
+.status-bar{
+background:#e6f7ff;
+padding:8px;
+border-radius:10px;
+font-size:13px;
+margin-bottom:15px;
+color:#2c5364;
+}
+
+/* APP LOGO */
+.app-logo{
+margin-bottom:10px;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+margin-bottom:5px;
+}
+
+.logo span{
+color:#2c5364;
+}
+
+.tagline{
+font-size:13px;
+color:#666;
+margin-bottom:15px;
+}
+
+/* Inputs */
+.input-box{
+margin-bottom:15px;
+text-align:left;
+}
+
+.input-box label{
+font-size:14px;
+color:#555;
+}
+
+.input-box input{
+width:100%;
+padding:10px;
+margin-top:5px;
+border-radius:8px;
+border:1px solid #ccc;
+outline:none;
+}
+
+.input-box input:focus{
+border-color:#2c5364;
+}
+
+/* Password Strength */
+.strength{
+height:6px;
+border-radius:5px;
+background:#ddd;
+margin-top:5px;
+}
+
+.strength span{
+display:block;
+height:100%;
+width:0%;
+background:#2c5364;
+border-radius:5px;
+transition:0.3s;
+}
+
+/* Button */
+.btn{
+width:100%;
+padding:12px;
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+border:none;
+border-radius:30px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.switch{
+margin-top:15px;
+font-size:14px;
+}
+
+.switch a{
+color:#2c5364;
+text-decoration:none;
+font-weight:500;
+cursor:pointer;
+}
+
+/* Tips */
+.tip-box{
+margin-top:15px;
+font-size:13px;
+color:#444;
+background:#f1f9ff;
+padding:10px;
+border-radius:10px;
+}
+
+/* Loader */
+.loader{
+display:none;
+margin-top:10px;
+font-size:14px;
+color:#2c5364;
+}
+
+/* Trust Badges */
+.badges{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:15px;
+font-size:12px;
+color:#666;
+}
+
+footer{
+position:absolute;
+bottom:10px;
+font-size:13px;
+color:#555;
+}
+</style>
+
+<script>
+let tips = [
+"Never share OTP with anyone.",
+"Government agencies never ask for passwords.",
+"Verify URLs before clicking links.",
+"Enable 2-factor authentication."
+];
+let tipIndex = 0;
+
+setInterval(()=>{
+document.getElementById("tipText").innerText = tips[tipIndex];
+tipIndex = (tipIndex+1) % tips.length;
+},3000);
+
+function loginUser(){
+document.getElementById("loader").style.display="block";
+setTimeout(()=>{
+localStorage.setItem("fraudshieldUser","Citizen");
+alert("Secure Login Successful 🛡️");
+window.location.href="index.html";
+},1500);
+}
+
+function showSignup(){
+document.getElementById("loginForm").style.display="none";
+document.getElementById("signupForm").style.display="block";
+}
+
+function showLogin(){
+document.getElementById("signupForm").style.display="none";
+document.getElementById("loginForm").style.display="block";
+}
+
+function checkStrength(val){
+let strength = document.getElementById("strengthBar");
+if(val.length<4) strength.style.width="25%";
+else if(val.length<8) strength.style.width="50%";
+else if(val.match(/[A-Z]/) && val.match(/[0-9]/)) strength.style.width="100%";
+else strength.style.width="75%";
+}
+</script>
+</head>
+
+<body>
+
+<div class="bg-icon icon1">🔐</div>
+<div class="bg-icon icon2">🛡️</div>
+<div class="bg-icon icon3">💳</div>
+
+<div class="login-box">
+
+<div class="status-bar">
+🟢 City Cyber System Status: Secure
+</div>
+
+<div class="app-logo">
+<svg width="60" height="70" viewBox="0 0 100 120">
+<path d="M50 5 L90 25 V55 C90 85 70 105 50 115 C30 105 10 85 10 55 V25 Z"
+fill="#2c5364"/>
+<circle cx="50" cy="55" r="15" fill="#ffffff"/>
+</svg>
+</div>
+
+<div class="logo">
+FraudShield <span>India</span>
+</div>
+<div class="tagline">
+Smart City Cyber Safety Platform
+</div>
+
+<!-- LOGIN -->
+<div id="loginForm">
+<h3>Citizen Secure Login</h3>
+
+<div class="input-box">
+<label>Email</label>
+<input type="email" placeholder="Enter your email">
+</div>
+
+<div class="input-box">
+<label>Password</label>
+<input type="password" placeholder="Enter your password">
+</div>
+
+<button class="btn" onclick="loginUser()">Login</button>
+<div class="loader" id="loader">Authenticating...</div>
+
+<div class="switch">
+New here? <a onclick="showSignup()">Create Account</a>
+</div>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupForm" style="display:none;">
+<h3>Create Secure Account</h3>
+
+<div class="input-box">
+<label>Full Name</label>
+<input type="text">
+</div>
+
+<div class="input-box">
+<label>Password</label>
+<input type="password" onkeyup="checkStrength(this.value)">
+<div class="strength"><span id="strengthBar"></span></div>
+</div>
+
+<button class="btn" onclick="loginUser()">Register</button>
+
+<div class="switch">
+Already registered? <a onclick="showLogin()">Login</a>
+</div>
+</div>
+
+<div class="tip-box">
+💡 <span id="tipText">Never share OTP with anyone.</span>
+</div>
+
+<div class="badges">
+<span>✔ Govt-Grade Security</span>
+<span>✔ Smart City Ready</span>
+</div>
+
+</div>
+
+<footer>
+© 2026 FraudShield India | Digital Safety Mission
+</footer>
+
+</body>
+</html>

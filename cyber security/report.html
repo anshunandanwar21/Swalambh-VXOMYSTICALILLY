@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - Report Fraud</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+overflow-x:hidden;
+}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:500;
+animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:0.6;}}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:500;
+}
+nav a:hover{color:#00f2fe;}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:60px 20px 20px;
+position:relative;
+animation:fade 1s ease;
+}
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;}
+}
+
+.hero h2{
+font-size:38px;
+color:#203a43;
+}
+
+.hero p{color:#555;}
+
+/* STICKERS */
+.sticker{
+position:absolute;
+font-size:35px;
+animation:float 4s infinite;
+}
+.sticker1{top:40px; left:80px;}
+.sticker2{top:120px; right:100px;}
+.sticker3{bottom:30px; left:120px;}
+@keyframes float{50%{transform:translateY(-15px);}}
+
+/* STEPS */
+.steps{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:20px;
+}
+.step{
+background:white;
+padding:10px 18px;
+border-radius:20px;
+font-size:14px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.active{
+background:#2c5364;
+color:white;
+}
+
+/* FORM */
+.form-container{
+width:480px;
+margin:40px auto;
+padding:35px;
+border-radius:20px;
+background:rgba(255,255,255,0.75);
+backdrop-filter:blur(10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.form-container h3{
+text-align:center;
+color:#203a43;
+margin-bottom:15px;
+}
+
+input, textarea, select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+input:focus, textarea:focus{
+outline:none;
+border-color:#2c5364;
+box-shadow:0 0 6px rgba(44,83,100,0.4);
+}
+
+/* SEVERITY */
+.severity{
+display:flex;
+justify-content:space-between;
+margin:15px 0;
+}
+.severity span{
+flex:1;
+margin:0 5px;
+text-align:center;
+padding:8px;
+border-radius:10px;
+background:#eee;
+cursor:pointer;
+}
+.severity span:hover{background:#ffb3b3;}
+.selected{background:#ff4d4d;color:white;}
+
+/* AI TIP */
+.ai-tip{
+background:#f1f9ff;
+padding:12px;
+border-radius:12px;
+font-size:13px;
+margin:15px 0;
+}
+
+/* FILE */
+.file-upload{
+border:2px dashed #aaa;
+padding:15px;
+border-radius:12px;
+text-align:center;
+font-size:13px;
+margin:10px 0;
+}
+
+/* CHECKBOX */
+.checkbox{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:13px;
+margin:10px 0;
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{transform:scale(1.05);}
+
+/* SUCCESS */
+.success{
+display:none;
+text-align:center;
+color:#2c5364;
+font-weight:600;
+}
+
+/* FOOTER */
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+</style>
+
+<script>
+function selectSeverity(el){
+document.querySelectorAll(".severity span").forEach(s=>s.classList.remove("selected"));
+el.classList.add("selected");
+}
+
+function submitForm(){
+document.getElementById("form").style.display="none";
+document.getElementById("success").style.display="block";
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="alert">
+🚨 Report fraud immediately — early reporting increases recovery chances!
+</div>
+
+<header>
+<h1>🛡️ FraudShield India</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="heatmap.html">Heatmap</a>
+<a href="report.html">Report</a>
+<a href="awareness.html">Awareness</a>
+<a href="quiz.html">Quiz</a>
+<a href="community.html">Community</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="sticker sticker1">🚨</div>
+<div class="sticker sticker2">💳</div>
+<div class="sticker sticker3">📱</div>
+
+<h2>Report Cyber Fraud</h2>
+<p>Your report protects thousands of others.</p>
+
+<div class="steps">
+<div class="step active">1️⃣ Details</div>
+<div class="step">2️⃣ Evidence</div>
+<div class="step">3️⃣ Submit</div>
+</div>
+</section>
+
+<div class="form-container" id="form">
+<h3>Fraud Complaint Form</h3>
+
+<input type="text" placeholder="👤 Full Name">
+<input type="email" placeholder="📧 Email Address">
+<input type="text" placeholder="📍 State (Auto-detected)">
+<input type="text" placeholder="🏙️ District">
+
+<select>
+<option>Select Fraud Type</option>
+<option>UPI Fraud</option>
+<option>OTP Scam</option>
+<option>Fake Loan App</option>
+<option>Credit Card Fraud</option>
+<option>Online Shopping Scam</option>
+</select>
+
+<div class="severity">
+<span onclick="selectSeverity(this)">Low</span>
+<span onclick="selectSeverity(this)">Medium</span>
+<span onclick="selectSeverity(this)">High</span>
+</div>
+
+<textarea rows="4" placeholder="📝 Describe what happened"></textarea>
+
+<div class="file-upload">
+📎 Upload Evidence (Screenshot / PDF / Audio)
+<input type="file">
+</div>
+
+<div class="ai-tip">
+🤖 AI Tip: Avoid sharing OTP, CVV, or screen access with anyone.
+</div>
+
+<div class="checkbox">
+<input type="checkbox"> Submit anonymously
+</div>
+
+<div class="checkbox">
+<input type="checkbox"> I confirm this information is true
+</div>
+
+<button onclick="submitForm()">Submit Secure Complaint</button>
+</div>
+
+<div class="form-container success" id="success">
+<h3>✅ Report Submitted Successfully</h3>
+<p>Our cyber team will review your complaint.</p>
+<p>Reference ID: <b>FS-2026-IND-00981</b></p>
+</div>
+
+<footer>
+© 2026 FraudShield India | Secure Reporting System 🔐
+</footer>
+
+</body>
+</html>

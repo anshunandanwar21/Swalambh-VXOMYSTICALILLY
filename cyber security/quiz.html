@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FraudShield India - Cyber Quiz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(to right,#eef2f3,#dfe9f3);
+overflow-x:hidden;
+}
+
+/* ALERT */
+.alert{
+background:#ff4d4d;
+color:white;
+text-align:center;
+padding:8px;
+font-weight:500;
+animation:blink 1.5s infinite;
+}
+@keyframes blink{50%{opacity:0.6;}}
+
+/* HEADER */
+header{
+background:linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+}
+header h1{margin:0;}
+nav a{
+color:white;
+text-decoration:none;
+margin:0 12px;
+font-weight:500;
+}
+nav a:hover{color:#00f2fe;}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:70px 20px 30px;
+position:relative;
+}
+.hero h2{
+font-size:42px;
+color:#203a43;
+}
+.hero p{color:#555;}
+
+/* FLOATING ICONS */
+.sticker{
+position:absolute;
+font-size:35px;
+animation:float 4s ease-in-out infinite;
+}
+.sticker1{top:60px; left:80px;}
+.sticker2{top:150px; right:100px;}
+.sticker3{bottom:40px; left:120px;}
+@keyframes float{
+50%{transform:translateY(-15px);}
+}
+
+/* QUIZ CARD */
+.quiz-container{
+width:650px;
+margin:30px auto;
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,0.95);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.timer{
+text-align:right;
+font-weight:600;
+color:#ff4d4d;
+}
+
+.progress{
+height:8px;
+background:#ddd;
+border-radius:10px;
+overflow:hidden;
+margin:10px 0 20px;
+}
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#2c5364,#00c6ff);
+transition:0.5s;
+}
+
+.question{
+margin:15px 0 8px;
+font-weight:600;
+}
+
+.option{
+display:block;
+padding:10px;
+margin:6px 0;
+background:#f4f6f9;
+border-radius:10px;
+cursor:pointer;
+transition:0.3s;
+}
+.option:hover{
+background:#dfe9f3;
+transform:scale(1.02);
+}
+
+button{
+margin-top:20px;
+padding:12px 28px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,#2c5364,#00c6ff);
+color:white;
+cursor:pointer;
+font-size:16px;
+transition:0.3s;
+}
+button:hover{transform:scale(1.05);}
+
+.result{
+margin-top:20px;
+font-size:18px;
+font-weight:700;
+text-align:center;
+}
+
+/* FOOTER */
+footer{
+background:#203a43;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="alert">
+🧠 Cyber Quiz with Levels – Play, Learn & Stay Safe!
+</div>
+
+<header>
+<h1>🛡️ FraudShield India</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="heatmap.html">Heatmap</a>
+<a href="report.html">Report</a>
+<a href="awareness.html">Awareness</a>
+<a href="quiz.html">Quiz</a>
+<a href="community.html">Community</a>
+<a href="about.html">About</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="sticker sticker1">🧠</div>
+<div class="sticker sticker2">🔐</div>
+<div class="sticker sticker3">💻</div>
+<h2>Cyber Awareness Quiz</h2>
+<p>Clear all levels to become a Cyber Hero 🏆</p>
+</section>
+
+<div class="quiz-container">
+
+<div class="timer">⏱️ Time Left: <span id="time">90</span>s</div>
+
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<h3 id="levelTitle">🟢 Level 1 – Beginner</h3>
+
+<form id="quiz">
+
+<!-- LEVEL 1 -->
+<div id="level1">
+<div class="question">1️⃣ Should you share OTP with bank officials?</div>
+<label class="option"><input type="radio" name="q1" value="a"> Yes</label>
+<label class="option"><input type="radio" name="q1" value="b"> No</label>
+
+<div class="question">2️⃣ Which is a secure website?</div>
+<label class="option"><input type="radio" name="q2" value="a"> http://bank.com</label>
+<label class="option"><input type="radio" name="q2" value="c"> https://bank.com</label>
+
+<div class="question">3️⃣ What to do after fraud transaction?</div>
+<label class="option"><input type="radio" name="q3" value="a"> Call 1930 immediately</label>
+<label class="option"><input type="radio" name="q3" value="b"> Ignore</label>
+
+<div class="question">4️⃣ Is clicking unknown links safe?</div>
+<label class="option"><input type="radio" name="q4" value="a"> Yes</label>
+<label class="option"><input type="radio" name="q4" value="b"> No</label>
+
+<div class="question">5️⃣ 2FA helps in?</div>
+<label class="option"><input type="radio" name="q5" value="c"> Extra security</label>
+</div>
+
+<!-- LEVEL 2 -->
+<div id="level2" style="display:none">
+<div class="question">6️⃣ What is phishing?</div>
+<label class="option"><input type="radio" name="q6" value="b"> Fake messages</label>
+
+<div class="question">7️⃣ Fake job scams ask for?</div>
+<label class="option"><input type="radio" name="q7" value="b"> Registration fees</label>
+
+<div class="question">8️⃣ UPI collect request should be?</div>
+<label class="option"><input type="radio" name="q8" value="b"> From known person</label>
+
+<div class="question">9️⃣ Screen sharing risk?</div>
+<label class="option"><input type="radio" name="q9" value="b"> High risk</label>
+
+<div class="question">🔟 Loan apps misuse?</div>
+<label class="option"><input type="radio" name="q10" value="b"> Permissions</label>
+</div>
+
+<!-- LEVEL 3 -->
+<div id="level3" style="display:none">
+<div class="question">1️⃣1️⃣ SIM swap fraud means?</div>
+<label class="option"><input type="radio" name="q11" value="b"> Duplicate SIM</label>
+
+<div class="question">1️⃣2️⃣ Best password?</div>
+<label class="option"><input type="radio" name="q12" value="b"> Strong & unique</label>
+
+<div class="question">1️⃣3️⃣ Safe banking?</div>
+<label class="option"><input type="radio" name="q13" value="b"> Private network</label>
+
+<div class="question">1️⃣4️⃣ Fake KYC calls?</div>
+<label class="option"><input type="radio" name="q14" value="b"> Scam</label>
+
+<div class="question">1️⃣5️⃣ Phone hacked?</div>
+<label class="option"><input type="radio" name="q15" value="b"> Reset & report</label>
+</div>
+
+<button type="button" onclick="submitLevel()">Submit Level</button>
+<button type="button" onclick="location.reload()">Restart 🔄</button>
+
+</form>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<footer>
+© 2026 FraudShield India | Cyber Smart India 🇮🇳
+</footer>
+
+<script>
+let level=1,time=90;
+const answers={q1:"b",q2:"c",q3:"a",q4:"b",q5:"c",q6:"b",q7:"b",q8:"b",q9:"b",q10:"b",q11:"b",q12:"b",q13:"b",q14:"b",q15:"b"};
+let timer=setInterval(()=>{time--;document.getElementById("time").innerText=time;if(time<=0)submitLevel();},1000);
+
+function submitLevel(){
+clearInterval(timer);
+let score=0,start=(level-1)*5+1;
+for(let i=start;i<start+5;i++){
+let s=document.querySelector(`input[name="q${i}"]:checked`);
+if(s && s.value===answers["q"+i]) score++;
+}
+document.getElementById("progressBar").style.width=(level*33)+"%";
+
+if(score>=3 && level<3){
+document.getElementById("level"+level).style.display="none";
+level++;
+document.getElementById("level"+level).style.display="block";
+document.getElementById("levelTitle").innerText=
+level==2?"🔵 Level 2 – Aware":"🔴 Level 3 – Cyber Hero";
+time=90;
+timer=setInterval(()=>{time--;document.getElementById("time").innerText=time;},1000);
+document.getElementById("result").innerHTML="✅ Level Cleared!";
+}
+else if(level==3 && score>=3){
+document.getElementById("result").innerHTML="🏆 CONGRATULATIONS! You are a CYBER HERO 🛡️";
+}
+else{
+document.getElementById("result").innerHTML="❌ Level Failed. Try again!";
+}
+}
+</script>
+
+</body>
+</html>
